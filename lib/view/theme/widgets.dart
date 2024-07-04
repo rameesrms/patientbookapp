@@ -16,8 +16,9 @@ class SmallWidgets {
 
   AppBar appBarWidget(
       {required String title, required double height, required double width, required Function fn, Widget? child }) {
-    return AppBar(
-        toolbarHeight: height,
+    return AppBar(forceMaterialTransparency: true,
+
+      toolbarHeight: height,
         automaticallyImplyLeading: false,backgroundColor: Colors.transparent,
         elevation: 0,leading:InkWell(
       onTap: () {

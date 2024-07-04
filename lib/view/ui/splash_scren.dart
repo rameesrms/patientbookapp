@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       Navigator.of(context).pushAndRemoveUntil(NavigateLogin(),(route) => false,);
 
     }else{
-      Navigator.of(context).pushAndRemoveUntil(NavigateHome(),(route) => false,);
+      Navigator.of(context).pushAndRemoveUntil(NavigateLogin(),(route) => false,);
 
 
     }

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'controller/managers/auth_manager.dart';
 import 'controller/managers/register_manager.dart';
 import 'controller/managers/state_manager.dart';
+import 'controller/routes/router.dart';
 import 'model/helper/service_locator.dart';
 
 void main() async{
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context)=>getIt<RegisterManager>()),
 
       ],
-      child: MaterialApp(
+      child: MaterialApp(onGenerateRoute: Routers.generateRoute,
         title: 'Flutter Demo',
         theme: ThemeData(
           // This is the theme of your application.

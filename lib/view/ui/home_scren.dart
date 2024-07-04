@@ -7,6 +7,7 @@ import 'package:interview_task/view/ui/register_screen.dart';
 import 'package:provider/provider.dart';
 import '../../../controller/managers/auth_manager.dart';
 import '../../controller/managers/home_manager.dart';
+import '../../controller/routes/routnames.dart';
 import '../../model/helper/service_locator.dart';
 import '../theme/constants.dart';
 import '../theme/widgets.dart';
@@ -156,7 +157,8 @@ appBar: SmallWidgets().appBarWidget(title: "", height: h10p, width: maxWidth, fn
                      floatingActionButton: Visibility(visible:
                      MediaQuery.of(context).viewInsets.bottom == 0,
                        child: InkWell(onTap: (){
-                         Navigator.push(context, MaterialPageRoute(builder: (_)=>RegisterScreen()));
+                         // Navigator.push(context, MaterialPageRoute(builder: (_)=>RegisterScreen()));
+                         Navigator.pushReplacementNamed(context, RouteNames.register);
 
                        },
                          child: Padding(

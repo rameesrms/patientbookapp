@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:interview_task/controller/routes/routnames.dart';
 import 'package:provider/provider.dart';
 import '../../../controller/managers/auth_manager.dart';
 import '../../../model/helper/service_locator.dart';
@@ -42,7 +43,7 @@ class LoginScreen extends StatelessWidget {
               getIt<AuthManager>().saveToken(result.token!);
 
               Fluttertoast.showToast(gravity: ToastGravity.CENTER,msg:result.message??"" ,backgroundColor: Colors.green,textColor: Colors.white);
-          Navigator.push(context, MaterialPageRoute(builder: (_)=>HomeScreen()));
+          Navigator.pushReplacementNamed(context, RouteNames.home);
 
           }else{
 
