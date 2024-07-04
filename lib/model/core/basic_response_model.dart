@@ -21,29 +21,30 @@ class BasicResponseModel {
 }
 
 
-class RequestOtpResponse {
-  int? status;
-  int? otp;
-  String? message;
 
 
-  RequestOtpResponse({this.status, this.message,this.otp});
+class BasicItem {
+  int? id;
+  String? name;
 
-  RequestOtpResponse.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
-    message = json['message'];
-    otp = json['otp'];
+
+  BasicItem({this.id, this.name});
+
+  BasicItem.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
 
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['message'] = this.message;
-    data['otp'] = this.otp;
+    data['id'] = this.id;
+    data['name'] = this.name;
 
     return data;
   }
 }
+
+
 
 

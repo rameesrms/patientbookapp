@@ -105,11 +105,11 @@ double padWidth = 30.0;
 
           return Consumer<HomeManager>(
             builder: (context,mgr,child) {
-              return Scaffold(backgroundColor: Colors.white,
+              return Scaffold(backgroundColor: Colors.white,extendBody: true,
 appBar: SmallWidgets().appBarWidget(title: "", height: h10p, width: maxWidth, fn: (){
   Navigator.pop(context);
 },child: Padding(
-  padding: const EdgeInsets.all(20.0),
+  padding: const EdgeInsets.all(25.0),
   child: SizedBox(child: Image.asset("assets/images/clarity_bell-line.png")),
 )),
 
@@ -135,12 +135,18 @@ appBar: SmallWidgets().appBarWidget(title: "", height: h10p, width: maxWidth, fn
 
                            Expanded(
                              child: SizedBox(
-                               child: ListView(
-                                 children:mgr.patients!.map((e) {
-                                   var index = mgr.patients!.indexOf(e);
-                                   return
-                                       patientBox(e,index);
-                                 }).toList()
+                               child: Entry(yOffset: 200,
+                                 // scale: 20,
+                                 delay: const Duration(milliseconds: 1000),
+                                 duration: const Duration(milliseconds: 500),
+                                 curve: Curves.ease,
+                                 child: ListView(
+                                   children:mgr.patients!.map((e) {
+                                     var index = mgr.patients!.indexOf(e);
+                                     return
+                                         patientBox(e,index);
+                                   }).toList()
+                                 ),
                                ),
                              ),
                            ),

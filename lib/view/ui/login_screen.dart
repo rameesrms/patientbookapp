@@ -1,4 +1,5 @@
 
+import 'package:entry/entry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
@@ -10,27 +11,8 @@ import '../../controller/managers/state_manager.dart';
 import '../theme/constants.dart';
 import 'home_scren.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin{
-
-  @override
-  void initState() {
-
-    super.initState();
-
-
-  }
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +46,9 @@ class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin
 
           }else{
 
-            pwdCntr.clear();
+            // pwdCntr.clear();
 
-            Fluttertoast.showToast(gravity: ToastGravity.CENTER,msg:result.message??"" ,backgroundColor: Colors.white,);
+            Fluttertoast.showToast(msg:result.message??"" ,backgroundColor: Colors.white,);
 
 
 
@@ -98,104 +80,110 @@ class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin
                                         ),),
                               ),
                             ),
-                            Padding(
-                              padding:  EdgeInsets.symmetric(horizontal:18.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                verticalSpace(h10p*0.8),
-                                Text("Login or register to book your appointments",style: TextStyles.textStyle2,),
-                                verticalSpace(h10p*0.8),
-                                Text("Email",style: TextStyles.textStyle3,),
+                            Entry(xOffset: 200,
+                              // scale: 20,
+                              delay: const Duration(milliseconds: 1000),
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.ease,
+                              child: Padding(
+                                padding:  EdgeInsets.symmetric(horizontal:18.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                  verticalSpace(h10p*0.8),
+                                  Text("Login or register to book your appointments",style: TextStyles.textStyle2,),
+                                  verticalSpace(h10p*0.8),
+                                  Text("Email",style: TextStyles.textStyle3,),
 
-                                TextField(textInputAction: TextInputAction.next,
-                                  decoration: inputDec3(hnt: "Enter your email"),
-                                  controller: userNameCntr,
-
-
-
-                                ),
-
-                                verticalSpace( h1p*2),
-                                Text("Password",style: TextStyles.textStyle3,),
-
-
-
-                                Consumer<StateManager>(
-                                    builder: (context,mngr,child) {
-                                      return TextField(onSubmitted: (val)async{
-
-                                        progress?.show();
-
-                                        await loginFn();
-
-                                        progress?.dismiss();
-
-
-
-
-
-                                      },obscureText: !mngr.showPass,
-
-                                        decoration: inputDec3(hnt: "Enter password",
-                                            suffix: GestureDetector(
-                                                onTap: (){
-                                                  getIt<StateManager>().showPwd(!mngr.showPass);
-                                                },
-                                                child: SizedBox(child:mngr.showPass?Icon(Icons.visibility_outlined,color: Color(0xff999999),):Icon(Icons.visibility_off_outlined,color: Color(0xff999999),)))),
-
-                                        controller: pwdCntr,
-
-                                      );
-                                    }
-                                ),
-
-
-
-                                // Expanded(child: SizedBox()),
-
-                                verticalSpace( h10p*0.8,),
-
-                                InkWell(
-
-                                  onTap: ()async{
-
-                                    progress?.show();
-
-                                    await loginFn();
-
-                                    progress?.dismiss();
-
-
-
-                                  },
-
-                                  child: Container(
-
-                                    // height: h1p*3,
-                                    // width: w10p*2,
-
-                                    child:Center(child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text("Login",style: TextStyles.textStyle5),
-                                    )),
-
-                                    decoration: BoxDecoration(color: Colours.primarygreen,
-
-
-
-                                        borderRadius: BorderRadius.circular(8.5)
-
-                                    ),
+                                  TextField(textInputAction: TextInputAction.next,
+                                    decoration: inputDec3(hnt: "Enter your email"),
+                                    controller: userNameCntr,
 
 
 
                                   ),
 
-                                )
+                                  verticalSpace( h1p*2),
+                                  Text("Password",style: TextStyles.textStyle3,),
 
 
-                              ],),
+
+                                  Consumer<StateManager>(
+                                      builder: (context,mngr,child) {
+                                        return TextField(onSubmitted: (val)async{
+
+                                          progress?.show();
+
+                                          await loginFn();
+
+                                          progress?.dismiss();
+
+
+
+
+
+                                        },obscureText: !mngr.showPass,
+
+                                          decoration: inputDec3(hnt: "Enter password",
+                                              suffix: GestureDetector(
+                                                  onTap: (){
+                                                    getIt<StateManager>().showPwd(!mngr.showPass);
+                                                  },
+                                                  child: SizedBox(child:mngr.showPass?Icon(Icons.visibility_outlined,color: Color(0xff999999),):Icon(Icons.visibility_off_outlined,color: Color(0xff999999),)))),
+
+                                          controller: pwdCntr,
+
+                                        );
+                                      }
+                                  ),
+
+
+
+                                  // Expanded(child: SizedBox()),
+
+                                  verticalSpace( h10p*0.8,),
+
+                                  InkWell(
+
+                                    onTap: ()async{
+
+                                      progress?.show();
+
+                                      await loginFn();
+
+                                      progress?.dismiss();
+
+
+
+                                    },
+
+                                    child: Container(
+
+                                      // height: h1p*3,
+                                      // width: w10p*2,
+
+                                      child:Center(child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text("Login",style: TextStyles.textStyle5),
+                                      )),
+
+                                      decoration: BoxDecoration(color: Colours.primarygreen,
+
+
+
+                                          borderRadius: BorderRadius.circular(8.5)
+
+                                      ),
+
+
+
+                                    ),
+
+                                  )
+
+
+                                ],),
+                              ),
                             ),
 
 

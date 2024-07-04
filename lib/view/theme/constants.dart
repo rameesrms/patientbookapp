@@ -76,7 +76,7 @@ InputDecoration searchTFieldDec({required String hnt, required Widget prefix}) {
 
 InputDecoration inputDec3({required String hnt,Widget? suffix}) {
   return InputDecoration(
-    suffix: suffix,
+    suffixIcon: suffix,
       contentPadding: EdgeInsets.only(left: 10),
       border: outLineBorder,
       enabledBorder: outLineBorder,
@@ -186,7 +186,7 @@ class TextStyles {
     fontWeight: FontWeight.w500,
       fontFamily: fontFam,
       // fontStyle: FontStyle.normal,
-      fontSize: 18.0,
+      fontSize: 16.0,
      );     static final textStyle7 = TextStyle(
     color: const Color(0xff006837),
     fontWeight: FontWeight.w300,
@@ -214,6 +214,12 @@ class TextStyles {
      );  static final textStyle11 = TextStyle(
     color: const Color(0xff000000),
     fontWeight: FontWeight.w500,
+      fontFamily: fontFam,
+      // fontStyle: FontStyle.normal,
+      fontSize: 15.0,
+     );  static final textStyle12 = TextStyle(
+    color: const Color(0xff404040),
+    fontWeight: FontWeight.w400,
       fontFamily: fontFam,
       // fontStyle: FontStyle.normal,
       fontSize: 15.0,

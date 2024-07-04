@@ -8,6 +8,9 @@ class Endpoints{
 
 
   static const String branchList = "BranchList";
+  static const String treatments = "TreatmentList";
+  static const String patientUpdate = "PatientUpdate";
+
 
 
 
