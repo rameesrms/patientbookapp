@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:interview_task/controller/managers/home_manager.dart';
 import 'package:interview_task/view/ui/splash_scren.dart';
 import 'package:provider/provider.dart';
 
 import 'controller/managers/auth_manager.dart';
+import 'controller/managers/register_manager.dart';
 import 'controller/managers/state_manager.dart';
 import 'model/helper/service_locator.dart';
 
@@ -24,6 +26,8 @@ class MyApp extends StatelessWidget {
 
         ChangeNotifierProvider(create: (context)=>getIt<StateManager>()),
         ChangeNotifierProvider(create: (context)=>getIt<AuthManager>()),
+        ChangeNotifierProvider(create: (context)=>getIt<HomeManager>()),
+        ChangeNotifierProvider(create: (context)=>getIt<RegisterManager>()),
 
       ],
       child: MaterialApp(

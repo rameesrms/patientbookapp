@@ -29,13 +29,13 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   }
   void _navigateHome() async {
     await Future.delayed(Duration(seconds: 5), () async {
-    var usrId =   getIt<SharedPreferences>().getInt(StringConstants.token );
+    var token =   getIt<SharedPreferences>().getString(StringConstants.token );
 
-    if(usrId==null){
+    if(token==null){
       Navigator.of(context).pushAndRemoveUntil(NavigateLogin(),(route) => false,);
 
     }else{
-      Navigator.of(context).pushAndRemoveUntil(NavigateHome(),(route) => false,);
+      Navigator.of(context).pushAndRemoveUntil(NavigateLogin(),(route) => false,);
 
 
     }

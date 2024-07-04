@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class StateManager extends ChangeNotifier{
 
@@ -26,7 +27,7 @@ showPwd(bool val){
    case "double":
     return double.tryParse(val) == null ? "Invalid input" : null;
 
-   case "char":
+   case "String":
     return null;
 
    default:
@@ -35,28 +36,7 @@ showPwd(bool val){
  }
 
 
- bool isValidBloodGroup(String bloodGroup) {
-  // Regular expression pattern for blood groups (e.g., A+, AB-, etc.)
-  RegExp regex = RegExp(r'^[ABO][+-]$');
 
-  // Check if the entered blood group matches the pattern
-  if (regex.hasMatch(bloodGroup)) {
-   return true;
-  } else {
-   return false;
-  }
- }
-
- bool isValidBloodPressure(String bp) {
-  // Regular expression pattern for blood groups (e.g., A+, AB-, etc.)
-  // RegExp regex = RegExp(r'^[ABO][+-]$');
-  List<String> bpParts = bp.split('/');
-  if (bpParts.length == 2 && double.tryParse(bpParts[0]) != null &&
-      double.tryParse(bpParts[1]) != null) {
-   return true;
-  } else {
-   return false;
-  }
 
 
   // removeLastIfZero(String str){
@@ -75,17 +55,21 @@ showPwd(bool val){
   // Future<bool> checkInternetConnection() async {
   //  var connectivityResult = await Connectivity().checkConnectivity();
   //  return connectivityResult != ConnectivityResult.none;
-  // }
+  // }'
+
+
+
+
+ getFormattedDate(String dt){
+  DateTime date = DateTime.parse(dt);
+  // Format the date using intl package
+  String formattedDate = DateFormat('dd/MM/yyyy').format(date);
+  return formattedDate;
  }
 
- //
- // getFormattedDate(String dt){
- //  DateTime date = DateTime.parse(dt);
- //  // Format the date using intl package
- //  String formattedDate = DateFormat.yMMMMd().format(date);
- //  return formattedDate;
- // }
+ }
 
 
 
-}
+
+

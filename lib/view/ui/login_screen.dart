@@ -56,17 +56,14 @@ class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin
             // String pass = "123456";
 
             var result = await  getIt<AuthManager>().userLogin(username: uname, pwd: pass);
-
             if(result.status==true){
-              getIt<AuthManager>().saveToken(result.message!);
+              getIt<AuthManager>().saveToken(result.token!);
 
               Fluttertoast.showToast(gravity: ToastGravity.CENTER,msg:result.message??"" ,backgroundColor: Colors.green,textColor: Colors.white);
           Navigator.push(context, MaterialPageRoute(builder: (_)=>HomeScreen()));
 
           }else{
-              // Navigator.push(context, MaterialPageRoute(builder: (_)=>HomeScreen()));
 
-            // userNameCntr.clear();
             pwdCntr.clear();
 
             Fluttertoast.showToast(gravity: ToastGravity.CENTER,msg:result.message??"" ,backgroundColor: Colors.white,);

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class Colours {
   static const primarygreen = const Color(0xff006837);
   static const fillcolor =  Color(0xffD9D9D9);
+  static const boxGrey =  Color(0xffF1F1F1);
 
 }
 
@@ -54,9 +55,12 @@ var couponCodebrdr = OutlineInputBorder(
 
 
 
-InputDecoration inputDec({required String hnt, required Widget prefix}) {
+InputDecoration searchTFieldDec({required String hnt, required Widget prefix}) {
   return InputDecoration(
-      prefixIcon: prefix,
+      prefixIcon: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: prefix,
+      ),
       contentPadding: EdgeInsets.only(left: 10),
       border: outLineBorder,
       enabledBorder: outLineBorder,
@@ -65,7 +69,7 @@ InputDecoration inputDec({required String hnt, required Widget prefix}) {
       fillColor: Colors.transparent,
       errorStyle: TextStyle(fontSize: 0),
       hintText: hnt,
-      hintStyle: TextStyles.textStyle);
+      hintStyle: TextStyles.textStyle10);
 }
 
 
@@ -129,7 +133,7 @@ horizontalSpace(double size) {
 
 
 class TextStyles {
-  static String fontFam = "Nunito";
+  static String fontFam = "Poppins";
 
   static const textStyle = TextStyle(
       color: const Color(0xff444444),
@@ -151,9 +155,15 @@ class TextStyles {
     fontWeight: FontWeight.w400,
       fontFamily: fontFam,
       fontStyle: FontStyle.normal,
-      fontSize: 16.0,
+      fontSize: 14.0,
      );  static final textStyle4 = TextStyle(
     color: const Color(0xff000000).withOpacity(0.4),
+    fontWeight: FontWeight.w400,
+      fontFamily: fontFam,
+      fontStyle: FontStyle.normal,
+      fontSize: 14.0,
+     ); static final textStyle4b = TextStyle(
+    color: const Color(0xff000000).withOpacity(0.2),
     fontWeight: FontWeight.w400,
       fontFamily: fontFam,
       fontStyle: FontStyle.normal,
@@ -165,6 +175,48 @@ class TextStyles {
       fontFamily: fontFam,
       // fontStyle: FontStyle.normal,
       fontSize: 17.0,
+     ); static final textStyle5b = TextStyle(
+    color: const Color(0xffFFFFFF),
+    fontWeight: FontWeight.w500,
+      fontFamily: fontFam,
+      // fontStyle: FontStyle.normal,
+      fontSize: 12.0,
+     );     static final textStyle6 = TextStyle(
+    color: const Color(0xff000000),
+    fontWeight: FontWeight.w500,
+      fontFamily: fontFam,
+      // fontStyle: FontStyle.normal,
+      fontSize: 18.0,
+     );     static final textStyle7 = TextStyle(
+    color: const Color(0xff006837),
+    fontWeight: FontWeight.w300,
+      fontFamily: fontFam,
+      // fontStyle: FontStyle.normal,
+      fontSize: 16.0,
+     );     static final textStyle8 = TextStyle(
+    color: const Color(0xff000000).withOpacity(0.5),
+    fontWeight: FontWeight.w400,
+      fontFamily: fontFam,
+      // fontStyle: FontStyle.normal,
+      fontSize: 15.0,
+     );    static final textStyle9 = TextStyle(
+    color: const Color(0xff000000),
+    fontWeight: FontWeight.w300,
+      fontFamily: fontFam,
+      // fontStyle: FontStyle.normal,
+      fontSize: 16.0,
+     );   static final textStyle10 = TextStyle(
+    color: const Color(0xff000000).withOpacity(0.2),
+    fontWeight: FontWeight.w400,
+      fontFamily: fontFam,
+      // fontStyle: FontStyle.normal,
+      fontSize: 12.0,
+     );  static final textStyle11 = TextStyle(
+    color: const Color(0xff000000),
+    fontWeight: FontWeight.w500,
+      fontFamily: fontFam,
+      // fontStyle: FontStyle.normal,
+      fontSize: 15.0,
      );
 
 }

@@ -1,5 +1,5 @@
 class BasicResponseModel {
-  int? status;
+  bool? status;
   String? message;
 
 

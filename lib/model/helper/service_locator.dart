@@ -2,6 +2,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../controller/managers/auth_manager.dart';
+import '../../controller/managers/home_manager.dart';
+import '../../controller/managers/register_manager.dart';
 import '../../controller/managers/state_manager.dart';
 import '../../controller/services/dio_service.dart';
 
@@ -12,9 +14,11 @@ Future <void> setupServiceLocator() async{
   getIt.registerSingleton<DioClient>(DioClient());
   getIt.registerSingleton<StateManager>(StateManager());
   getIt.registerSingleton<AuthManager>(AuthManager());
-  // getIt.registerSingleton<UserManager>(UserManager());
+  getIt.registerSingleton<HomeManager>(HomeManager());
+  getIt.registerSingleton<RegisterManager>(RegisterManager());
 
 
 
 
 }
+

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../model/core/auth_model.dart';
 import '../../model/core/basic_response_model.dart';
 import '../../model/helper/service_locator.dart';
 import '../../view/theme/constants.dart';
@@ -30,20 +31,21 @@ class AuthManager extends ChangeNotifier{
 
 
 
-  Future<BasicResponseModel> userLogin({required String username, required String pwd})async{
+  Future<AuthModel> userLogin({required String username, required String pwd})async{
 
   String endpoint = Endpoints.login;
   Map<String,dynamic> data = {"username":username,"password":pwd,};
   dynamic responseData = await getIt<DioClient>().post(endpoint,data,null);
 
-  var result  = BasicResponseModel.fromJson(responseData);
+  var result  = AuthModel.fromJson(responseData);
 
 
-  if(responseData!=null&&result.status==1){
-   return BasicResponseModel();
+  if(responseData!=null&&result.status==true){
+   saveToken(result.token!);
+   return result;
   }
    else{
-     return BasicResponseModel();
+     return AuthModel(status: false,message: "Serer Error");
    }}
 
 
